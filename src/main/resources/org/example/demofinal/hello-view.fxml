@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.demofinal.BMICalculatorController">
+
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Clear" onAction="#clearFields"/>
+            <MenuItem text="Exit" onAction="#exitApplication"/>
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="Help" onAction="#showHelp"/>
+        </Menu>
+    </MenuBar>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="BMI Calculator"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Weight: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="weightField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Height: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="heightField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Units: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="unitBox" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Metric (kg/m)"/>
+                    <String fx:value="English (lbs/in)"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </GridPane>
+
+
+    <Button text="Calculate BMI" onAction="#calculateBMI"/>
+
+    <Label text="BMI: "/>
+    <Label fx:id="bmiResult"/>
+
+    <Label text="Status:"/>
+    <Label fx:id="statusResult"/>
+
+</VBox>
